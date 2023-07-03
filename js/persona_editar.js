@@ -34,7 +34,7 @@ this.error=true
 })
 },
 modificar() {
-let producto = {
+let persona = {
 nombre: this.nombre,
 apellido: this.apellido,
 edad: this.edad,
