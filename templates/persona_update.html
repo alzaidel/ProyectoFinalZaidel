@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Producto Nuevo</title>
+<title>Editar Persona</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap CSS v5.2.1 -->
@@ -15,8 +15,8 @@ integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+f
 <main>
 <div class="container" id="app">
 <form style="background-color: aliceblue;margin:10px auto ; width: 400px; padding: 20px;">
-<h2>Editar Producto </h2>
-<p>Precio:{{precio}}</p>
+<h2>Editar Persona </h2>
+<p>Nombre:{{nombre}} {{apellido}}</p>
 <div class="mb-3">
 <label for="id">Id</label>
 <input type="number" name="id" id="id" disabled v-model="id" >
@@ -26,16 +26,20 @@ integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+f
 <input type="text" name="nombre" id="nombre" v-model="nombre">
 </div>
 <div class="mb-3">
-<label for="precio">Precio</label>
-<input type="number" name="precio" id="precio" v-model="precio">
+    <label for="apellido">Apellido</label>
+    <input type="text" name="apellido" id="apellido" v-model="apellido">
 </div>
 <div class="mb-3">
-<label for="stock">Stock</label>
-<input type="number" name="stock" id="stock" v-model="stock">
+<label for="edad">Edad</label>
+<input type="number" name="edad" id="edad" v-model="edad">
 </div>
 <div class="mb-3">
-<label for="imagen">Imagen</label>
-<input type="text" name="imagen" id="imagen" v-model="imagen">
+<label for="email">Email</label>
+<input type="text" name="email" id="email" v-model="email">
+</div>
+<div class="mb-3">
+<label for="foto">Foto</label>
+<input type="text" name="foto" id="foto" v-model="foto">
 <img width="100" :src="imagen" alt="">
 </div>
 <button type="button" class="btn btn-success" v-on:click="modificar()">Grabar</button>
@@ -54,6 +58,6 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
 crossorigin="anonymous"> </script>
 <script src="../js/main.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="../js/producto_editar.js"></script>
+<script src="../js/persona_editar.js"></script>
 </body>
-</html
+</html>

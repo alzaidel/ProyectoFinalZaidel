@@ -2,18 +2,19 @@ const { createApp } = Vue
 createApp({
 data() {
 return {
-productos:[],
+personas:[],
 //url:'http://localhost:5000/productos',
 // si el backend esta corriendo local usar localhost 5000(si no lo subieron a pythonanywhere)
-url:'https://alzaidel.pythonanywhere.com/productos', // si ya lo subieron a pythonanywhere
+url:'https://alzaidel.pythonanywhere.com/personas', // si ya lo subieron a pythonanywhere
 error:false,
 cargando:true,
 /*atributos para el guardar los valores del formulario */
 id:0,
 nombre:"",
-imagen:"",
-stock:0,
-precio:0,
+apellido:"",
+edad:0,
+email:"",
+foto:"",
 }
 },
 methods: {
@@ -21,7 +22,7 @@ fetchData(url) {
 fetch(url)
 .then(response => response.json())
 .then(data => {
-this.productos = data;
+this.personas = data;
 this.cargando=false
 })
 .catch(err => {
@@ -29,8 +30,8 @@ console.error(err);
 this.error=true
 })
 },
-eliminar(producto) {
-const url = this.url+'/' + producto;
+eliminar(persona) {
+const url = this.url+'/' + persona;
 var options = {
 method: 'DELETE',
 }
@@ -41,14 +42,15 @@ location.reload();
 })
 },
 grabar(){
-let producto = {
-nombre:this.nombre,
-precio: this.precio,
-stock: this.stock,
-imagen:this.imagen
+let persona = {
+nombre: this.nombre,
+apellido: this.apellido,
+edad: this.edad,
+email: this.email,
+foto:this.foto
 }
 var options = {
-body:JSON.stringify(producto),
+body:JSON.stringify(persona),
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 redirect: 'follow'
@@ -56,7 +58,7 @@ redirect: 'follow'
 fetch(this.url, options)
 .then(function () {
 alert("Registro grabado")
-window.location.href = "https://alzaidel.pythonanywhere.com/productos/productos.html";
+window.location.href = "../templates/personas.html";
 })
 .catch(err => {
 console.error(err);

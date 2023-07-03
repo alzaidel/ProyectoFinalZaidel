@@ -7,10 +7,11 @@ data() {
 return {
 id:0,
 nombre:"",
-imagen:"",
-stock:0,
-precio:0,
-url:'https://alzaidel.pythonanywhere.com/productos/'+id,
+apellido:"",
+edad:0,
+email:"",
+foto:"",
+url:'https://alzaidel.pythonanywhere.com/personas/'+id,
 }
 },
 methods: {
@@ -20,11 +21,12 @@ fetch(url)
 .then(data => {
 
 console.log(data)
-this.id=data.id
+this.id=data.id;
 this.nombre = data.nombre;
-this.imagen=data.imagen
-this.stock=data.stock
-this.precio=data.precio
+this.apellido=data.apellido;
+this.edad=data.edad;
+this.email=data.email;
+this.foto=data.foto;
 })
 .catch(err => {
 console.error(err);
@@ -33,13 +35,14 @@ this.error=true
 },
 modificar() {
 let producto = {
-nombre:this.nombre,
-precio: this.precio,
-stock: this.stock,
-imagen:this.imagen
+nombre: this.nombre,
+apellido: this.apellido,
+edad: this.edad,
+email: this.email,
+foto: this.foto
 }
 var options = {
-body: JSON.stringify(producto),
+body: JSON.stringify(persona),
 method: 'PUT',
 headers: { 'Content-Type': 'application/json' },
 redirect: 'follow'
@@ -47,7 +50,7 @@ redirect: 'follow'
 fetch(this.url, options)
 .then(function () {
 alert("Registro modificado")
-window.location.href = "../templates/productos.html";
+window.location.href = "../templates/personas.html";
 })
 .catch(err => {
 console.error(err);

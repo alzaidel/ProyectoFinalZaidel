@@ -14,9 +14,9 @@ crossorigin="anonymous">
 </header>
 <main>
 <div id="app" class="container">
-<h1>Productos</h1>
+<h1>Personas</h1>
 <br>
-<a class="btn btn-primary" href="./producto_nuevo.html">Nuevo</a>
+<a class="btn btn-primary" href="./persona_nueva.html">Nuevo</a>
 <br><br>
 <div v-if="error">
 <p>Lo sentimos , no se ha podido cargar correctamente la base de datos.</p>
@@ -33,24 +33,26 @@ crossorigin="anonymous">
 <tr>
 <th scope="col">Id</th>
 <th scope="col">Nombre</th>
-<th scope="col">Precio</th>
-<th scope="col">Stock</th>
-<th scope="col">Imagen</th>
+<th scope="col">Apellido</th>
+<th scope="col">Edad</th>
+<th scope="col">Email</th>
+<th scope="col">Foto</th>
 <th scope="col">Acciones</th>
 </tr>
 </thead>
 <tbody>
-<tr class="" v-for="producto in productos">
-<td scope="row">{{producto.id}}</td>
-<td>{{producto.nombre}}</td>
-<td>{{producto.precio}}</td>
-<td>{{producto.stock}}</td>
+<tr class="" v-for="persona in personas">
+<td scope="row">{{persona.id}}</td>
+<td>{{persona.nombre}}</td>
+<td>{{persona.apellido}}</td>
+<td>{{persona.edad}}</td>
+<td>{{persona.email}}</td>
 <td>
-<img width="60" :src="producto.imagen" :alt="producto.nombre">
+<img width="60" :src="persona.foto" :alt="persona.nombre">
 </td>
 <td>
-<a class="btn btn-primary" :href="'./producto_update.html?id='+ producto.id" >Editar</a>
-<button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)" >Eliminar</button>
+<a class="btn btn-primary" :href="'./persona_update.html?id='+ persona.id" >Editar</a>
+<button type="button" class="btn btn-danger" v-on:click="eliminar(persona.id)" >Eliminar</button>
 </td>
 </tr>
 </tbody>
@@ -73,6 +75,6 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
 crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
-<script src="../js/productos.js"></script>
+<script src="../js/personas.js"></script>
 </body>
 </html>
