@@ -1,0 +1,409 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+html {
+    height: 100%;
+}
+
+body {
+    /* FUENTE Yanone Kaffeesatz */
+    /* font-family: "Yanone Kaffeesatz", sans-serif; */
+    /* h1 { font-family: "Yanone Kaffeesatz"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Yanone Kaffeesatz"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: "Yanone Kaffeesatz"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Yanone Kaffeesatz"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: "Yanone Kaffeesatz"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; } */
+    font-family: Arial, sans-serif;
+
+    min-height: 100%;
+    background-color: #edeeff;
+    /* background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%); */
+}
+
+/* .grid-container {
+    display: grid;
+    gap: 1px;
+    text-align: center;
+    grid-template-areas:
+        "header"
+        "consola"
+        "navbar"
+        "article"
+        "article2"
+        "aside"
+        "footer";
+} */
+
+.grid-video {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background-image: url("para banner.jpg");
+    text-align: center;
+    color: #edeeff;
+    text-shadow: -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black, 1px 1px 0px black;
+    
+}
+
+.consola {
+    grid-area: consola;
+    background-color: beige;
+}
+
+.navbar-container {
+    grid-area: navbar;
+    background-color: #000000; 
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+ 
+.navbar {
+    background-color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: left; */
+    }
+
+    .navbar li {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start; */
+        }
+
+        .navbar a {
+            font-family: Arial, sans-serif;
+            color: #ffffff; 
+            text-decoration: none;
+            outline: none;
+        }
+
+        .navbar a:hover {
+            font-weight: bold; /* Remarcar en negrita */
+            font-size: 1.1em; /* Aumentar tamaño de caracteres */
+          }
+
+
+
+.aside {
+    grid-area: aside;
+    background-color: #edeeff;
+    max-height:auto;
+    max-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.article {
+    grid-area: article;
+    /* background-color: #edeeff; */
+    text-align: center;
+    padding: 20px;
+    color:#9b0a0a;
+    /* font-weight:bold; */
+
+}
+
+.parrafo {
+    background-color: #0c053dd7; /* Color de fondo */
+    border-radius: 15px; /* Radio de las esquinas redondeadas */
+    padding: 10px; /* Espacio interno dentro del fondo */
+    margin-bottom: 30px;
+  }
+
+  .parrafo a {
+    font-family: Arial, sans-serif;
+    color: #ff7c02; 
+    text-decoration: none;
+    outline: none;
+}
+
+.parrafo a:hover {
+    font-weight: bold; /* Remarcar en negrita */
+    font-size: 1.1em; /* Aumentar tamaño de caracteres */
+  }
+
+.article2 {
+    grid-area: article2;
+    background-color: #edeeff;
+    text-align: center;
+    padding: 20px;
+    aspect-ratio: 16/9;
+}
+
+.api {
+    grid-area: article;
+    background-color: #398e91e5;
+    text-align: justify;
+    border-radius: 10px;
+    padding: 20px;
+    
+    }
+
+/* Estilos personalizados para el select */
+.select-estilo {
+    appearance: none;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    color: #333333;
+  }
+  
+  .select-estilo:focus {
+    outline: none;
+    box-shadow: 0 0 4px #888888;
+  }
+
+.profes {
+    grid-area: article;
+    text-align: center;
+    background-color: #edeeff;
+    width: 100%;
+}
+
+.profes img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.form {
+    grid-area: article;
+   
+    
+}
+
+.jitsi {
+    grid-area: article;
+    text-align: left;
+    padding: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+}
+
+.country-image {
+    height: 200px;
+}
+
+@media (max-width:500px) {
+    .grid-container {
+        display: grid;
+        gap: 1px;
+        text-align: center;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: auto;
+        grid-template:
+            "header"
+            "navbar"
+            "aside"
+            "article"
+            "article2"
+            "footer";
+    }
+
+    .navbar {
+        grid-area: navbar;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+        }
+
+    .navbar li {
+        margin-bottom: 10px;
+        }
+    }
+    
+
+
+@media (min-width:501px) {
+    .grid-container {
+        /* grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: auto; */
+        display: grid;
+        gap: 1px;
+        text-align: center;
+        grid-template-areas:
+            "header"
+            "navbar"
+            "article"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        }   
+        
+        .navbar {
+            grid-area: navbar;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:space-around;
+            }
+    
+        .navbar li {
+            margin-bottom: 10px;
+            }
+    }
+    
+/* Formato de formularios: */
+
+form input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  form input[type="text"]::placeholder {
+    color: gray;
+  }
+  
+  form input[type="text"]:focus::placeholder {
+    color: transparent;
+  }
+
+
+.header {
+    width: 100%;
+    height: 100%;
+    /* animation-name: cambiarcolor1;
+    animation-name: aparecer;
+    animation-duration: 3s;
+    animation-iteration-count: 2; */
+}
+
+/* @keyframes cambiarcolor1 {
+    0% {
+        background-color: bisque;
+    }
+
+    50% {
+        background-color: aquamarine;
+    }
+
+    100% {
+        background-color: white;
+    }
+} */
+
+/* @keyframes aparecer {
+    0% {
+        rotate: 45deg;
+    }
+} */
+
+.article {
+    height: 100%;
+    width: 100%;
+}
+
+.api {
+    min-height: 50vh;
+    width: 100%;
+}
+
+.form {
+    min-height: 60vh;
+    width: 100%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.form input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .form input[type="text"]::placeholder {
+    color: gray;
+  }
+  
+  .form input[type="text"]:focus::placeholder {
+    color: transparent;
+  }
+
+
+.aside {
+    margin-top: 0;
+    margin-left: 0;
+    height: auto;
+    width: auto;
+    animation-name: expandir;
+    animation-duration: 3.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes expandir {
+    0% {
+        transform: scale(0.5);
+
+    }
+}
+
+
+.carousel-frame {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.carousel-frame ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+
+    animation: slide 20s infinite linear;
+}
+
+.carousel-frame li {
+    list-style: none;
+    width: 100%;
+}
+
+.carousel-frame img {
+    width: 100%;
+}
+
+@keyframes slide {
+    0% {margin-left: 0%;}
+    20% {margin-left: 0%;}
+
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+
+    75% {margin-left: -300%;}
+    95% {margin-left: -300%;}
+}

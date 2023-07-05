@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alumnos</title>
+
+  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/estilo.css">
+   <link rel="shortcut icon" href="iconos/Teacher_Outline.ico" type="image/x-icon">
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Ficha de Alumno</h1>
+    <br>
+   
+</header>
+
+<div class="navbar-container">
+  <nav class="navbar">
+    <li><a href="./templates/personas.html">Listado de alumnos</a></li>
+    <li><a href="./templates/persona_nueva.html">Agregar alumno</a></li>
+    <li><a href="./infoAlumnos.html">Información de alumnos</a></li>
+  </nav>
+</div>
+
+<article class="api">
+
+  <h1>Información de Alumnos</h1>
+  
+ 
+  <!-- Select para elegir un alumno -->
+  <select id="alumno-select" onchange="getAlumnoInfo(this.value)" class="select-estilo">
+    <option value="">Seleccione el nombre</option>
+  </select>
+
+  <!-- Div para mostrar los detalles del alumno seleccionado -->
+  <div id="alumno-details"></div>
+
+  <script>
+    // Obtener la lista de nombres al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('https://alzaidel.pythonanywhere.com/personas')
+        .then(response => response.json())
+        .then(data => {
+          const select = document.getElementById('alumno-select');
+          data.forEach(alumno => {
+            const option = document.createElement('option');
+            option.value = alumno.id;
+            option.text = alumno.apellido + ' ' + alumno.nombre;
+            select.appendChild(option);
+          });
+
+          // Ordenar la lista desplegable alfabéticamente
+          Array.from(select.options).sort((a, b) => a.text.localeCompare(b.text)).forEach(option => select.appendChild(option));
+        })
+        .catch(error => {
+          console.log('Error al cargar la lista de alumnos');
+        });
+    });
+
+    
+    // Obtener la información del alumno seleccionado
+    function getAlumnoInfo(ID_Alumno) {
+      var alumnoDetails = document.getElementById('alumno-details');
+      alumnoDetails.innerHTML = '';
+      
+      console.log(ID_Alumno);
+      if (ID_Alumno) {
+        fetch(`https://alzaidel.pythonanywhere.com/personas`)
+          .then(response => response.json())
+          .then(data => {
+            const alumno = data[0];
+
+            const alumnoDetails = document.getElementById('alumno-details');
+            
+            alumnoDetails.innerHTML += '';
+            alumnoDetails.innerHTML += `<h2><br>${alumno.nombre} ${alumno.apellido}</h2>`;
+            alumnoDetails.innerHTML += `<p><br><strong>Nombre:</strong> ${alumno.nombre}</p>`;
+            alumnoDetails.innerHTML += `<p><strong>Apellido:</strong> ${alumno.apellido}</p>`;
+            alumnoDetails.innerHTML += `<p><strong>Edad:</strong> ${alumno.edad}</p>`;
+            alumnoDetails.innerHTML += `<p><strong>email:</strong> ${alumno.email}</p>`;
+           
+
+            // Agregar la imagen de perfil
+            alumnoDetails.innerHTML += `<p><br><br>Foto de ${alumno.nombre}</p>`;
+            alumnoDetails.innerHTML += `<img src="${alumno.foto}" alt="Foto de ${alumno.nombre}" class="country-image">`;
+      
+          })
+          .catch(error => {
+            console.log('Error al obtener la información del alumno');
+          });
+      } else {
+        document.getElementById('alumno-details').innerHTML = '';
+      }
+    }
+  </script>
+</article>
+
+<div class="carousel-frame">
+    <ul>
+        <li><a href="https://www.mercadolibre.com.ar/ofertas" target="_blank"> <img src="imagenes/MeLi1.webp"
+                    alt="Imagen 1">
+            </a></li>
+        <li><a href="https://www.mercadolibre.com.ar/c/ropa-y-accesorios" target="_blank"> <img src="imagenes/MeLi2.webp"
+                    alt="Imagen 2">
+            </a></li>
+        <li><a href="https://www.mercadolibre.com.ar/c/celulares-y-telefonos" target="_blank"> <img src="imagenes/MeLi3.webp"
+                    alt="Imagen 3">
+            </a></li>
+        <li><a href="https://www.mercadolibre.com.ar/c/belleza-y-cuidado-personal" target="_blank"> <img src="imagenes/MeLi4.webp"
+                    alt="Imagen 4">
+            </a></li>
+    </ul>
+    
+</div>
+
+<footer class="footer">
+
+    <a href="https://www.facebook.com" target="_blank"><i class='bx bxl-facebook-square bx-lg'></i></i></a>
+    <a href="https://www.instagram.com/clases.online.arg/" target="_blank"><i class='bx bxl-instagram bx-lg' style='color:#c18d2c'></i></a>
+    <a href="https://wa.me/5491150459292?text=%C2%A1Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20las%20clases%20online" target="_blank"><i class='bx bxl-whatsapp bx-lg' style='color:#16d41b'></i></a>
+    <a href="https://www.discord.com" target="_blank"><i class='bx bxl-discord-alt bx-lg' style='color:#161dd4'></i></a>
+    <br>
+    Todos los derechos reservados
+  </footer>
+  
+</body>
+</html>
